@@ -1,39 +1,39 @@
-import re                                                  # 0
+import re                                                  
 
-def check_strength(password):                              # 0
-    score = 0                                              # 1 Tab
-    feedback = []                                          # 1 Tab
+def check_strength(password):                             
+    score = 0                                              
+    feedback = []                                          
 
-    if len(password) >= 12:                                # 1 Tab
-        score += 2                                         # 2 Tabs
-    elif len(password) >= 8:                               # 1 Tab
-        score += 1                                         # 2 Tabs
-    else:                                                  # 1 Tab
-        feedback.append("Use at least 12 characters.")    # 2 Tabs
+    if len(password) >= 12:                                
+        score += 2                                         
+    elif len(password) >= 8:                               
+        score += 1                                         
+    else:                                                  
+        feedback.append("Use at least 12 characters.")    
 
-    checks = [                                             # 1 Tab
-        (r"[a-z]", "Add lowercase letters."),              # 2 Tabs
-        (r"[A-Z]", "Add uppercase letters."),              # 2 Tabs
-        (r"[0-9]", "Add numbers."),                        # 2 Tabs
-        (r"[^a-zA-Z0-9]", "Add symbols like ! @ #."),      # 2 Tabs
-    ]                                                      # 1 Tab
-    for pattern, tip in checks:                            # 1 Tab
-        if re.search(pattern, password):                   # 2 Tabs
-            score += 1                                     # 3 Tabs
-        else:                                              # 2 Tabs
-            feedback.append(tip)                           # 3 Tabs
+    checks = [                                             
+        (r"[a-z]", "Add lowercase letters."),              
+        (r"[A-Z]", "Add uppercase letters."),              
+        (r"[0-9]", "Add numbers."),                        
+        (r"[^a-zA-Z0-9]", "Add symbols like ! @ #."),      
+    ]                                                      
+    for pattern, tip in checks:                            
+        if re.search(pattern, password):                   
+            score += 1                                     
+        else:                                              
+            feedback.append(tip)                           
 
-    if score >= 6:                                         # 1 Tab
-        rating = "Strong"                                  # 2 Tabs
-    elif score >= 4:                                       # 1 Tab
-        rating = "Medium"                                  # 2 Tabs
-    else:                                                  # 1 Tab
-        rating = "Weak"                                    # 2 Tabs
-    return rating, score, feedback                         # 1 Tab
+    if score >= 6:                                         
+        rating = "Strong"                                  
+    elif score >= 4:                                       
+        rating = "Medium"                                  
+    else:                                                  
+        rating = "Weak"                                    
+    return rating, score, feedback                         
 
-if __name__ == "__main__":                                 # 0
-    pw = input("Enter a password: ")                       # 1 Tab
-    rating, score, feedback = check_strength(pw)           # 1 Tab
-    print(f"Strength: {rating} ({score}/6)")               # 1 Tab
-    for tip in feedback:                                   # 1 Tab
-        print(" -", tip)                                   # 2 Tabs
+if __name__ == "__main__":                                 
+    pw = input("Enter a password: ")                       
+    rating, score, feedback = check_strength(pw)          
+    print(f"Strength: {rating} ({score}/6)")               
+    for tip in feedback:                                   
+        print(" -", tip)                                  
